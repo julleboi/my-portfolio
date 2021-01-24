@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.scss';
 
-import Home from './components/Home';
-import Terminal from './components/Terminal';
-import NotFound from './components/NotFound';
+import Terminal from './terminal';
+import Home from './home';
+import About from './about';
+import Skills from './skills';
+import Projects from './projects';
+import Contact from './contact';
+import NotFound from './notfound';
 
 import { 
   MemoryRouter as Router, 
@@ -26,6 +30,10 @@ ReactDOM.render(
     </div>
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route exact path='/about' component={About} />
+      <Route exact path='/skills' component={Skills} />
+      <Route exact path='/projects' component={Projects} />
+      <Route exact path='/contact' component={Contact} />
       <Route exact path='/notfound' component={NotFound} />
       <Redirect to='/notfound' />
     </Switch>

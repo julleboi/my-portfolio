@@ -28,13 +28,15 @@ ReactDOM.render(
       <Link to='/projects'>My projects</Link> |
       <Link to='/contact'>Contact me</Link>
     </div>
-    <Switch>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/about' component={About} />
-      <Route exact path='/skills' component={Skills} />
-      <Route exact path='/projects' component={Projects} />
-      <Route exact path='/contact' component={Contact} />
-      <Route exact path='/notfound' component={NotFound} />
-      <Redirect to='/notfound' />
-    </Switch>
+    <div id='content'>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/skills' component={Skills} />
+        <Route exact path='/projects' component={Projects} />
+        <Route exact path='/contact' component={Contact} />
+        <Route exact path='/notfound' component={NotFound} />
+        <Redirect to='/notfound' />
+      </Switch>
+    </div>
   </Router>, document.getElementById("root"));

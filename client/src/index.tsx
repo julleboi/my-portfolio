@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.scss';
 
-import App from './components/App';
+import Home from './components/Home';
 import Terminal from './components/Terminal';
 import NotFound from './components/NotFound';
 
@@ -25,7 +25,7 @@ ReactDOM.render(
       <Link to='/contact'>Contact me</Link>
     </div>
     <Switch>
-      <Route exact path='/' component={App} />
+      <Route exact path='/' component={Home} />
       <Route exact path='/notfound' component={NotFound} />
       <Redirect to='/notfound' />
     </Switch>

@@ -15,14 +15,14 @@ body {
 }
 
 #terminal {
-  height: 80vh;
-  min-height: 80vh;
-  max-height: 80vh;
+  width: max-content;
+  height: max-content;
 }
 
 #terminal-lines-container {
-  height: 100%;
-  overflow-y: scroll;
+  width: 80vw;
+  height: 40vh;
+  overflow: auto;
   background-color: #181818;
   color: $body-color;
 }
@@ -42,4 +42,13 @@ body {
   background-color: #383838;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+#terminal-titlebar-buttons {
+  font-size: 150%;
+  font-weight: 800;
+}
+
+#terminal-titlebar-buttons a:hover {
+  text-decoration: none;
 }

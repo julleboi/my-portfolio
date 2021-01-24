@@ -6,7 +6,7 @@ type TerminalLineProps = {
 };
 
 export default (props: TerminalLineProps) => 
-  <div className='terminal-line p-2'>
+  <div className='terminal-line'>
     {
       props.input
         ? `< ${props.input}`

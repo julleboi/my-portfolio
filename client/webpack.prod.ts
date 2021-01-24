@@ -37,7 +37,8 @@ const config: webpack.Configuration = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin],
+  performance: { hints: false }
 };
 
 export default config;

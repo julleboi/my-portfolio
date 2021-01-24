@@ -19,6 +19,13 @@ export default () => {
       case "help":
         setLines([...lines, [input, 'Sorry, can\'t help you. :(']]);
         break;
+      case "skills":
+        setLines([...lines,
+          [input, 'My skills include:'],
+          ['', '- Something'],
+          ['', '- Something else']
+        ]);
+        break;
       default:
         setLines([...lines, [input, `Command '${input}' not found.`]]);
     }
@@ -33,7 +40,7 @@ export default () => {
   return(
     <div className='container-fluid mt-3' id='terminal'>
       <TerminalTitlebar />
-      <div id='terminal-lines-container'>
+      <div id='terminal-lines-container' className='p-3'>
         {
           lines.map(([i, o], idx) => 
             <TerminalLine key={idx} input={i} output={o} />

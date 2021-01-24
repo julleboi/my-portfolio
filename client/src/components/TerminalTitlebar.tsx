@@ -5,10 +5,24 @@ export default () =>
     id='terminal-titlebar' 
     className='navbar navbar-dark'
   >
-    <div className='navbar-brand'>
-      {`</> julle.dev`}
+    <a 
+      className='navbar-brand'
+      href='#'
+    >
+      &lt;&frasl;&gt; julle.dev
+    </a>
+    <div id='terminal-titlebar-buttons'>
+      <a 
+        className='text-light'
+        href='#'
+      >
+        <span>&#95;</span>
+      </a>
+      <a 
+        className='text-light ml-3'
+        href='#'
+      >
+        <span>&times;</span>
+      </a>
     </div>
-    <button className='close text-light'>
-      <span>&times;</span>
-    </button>
   </div>

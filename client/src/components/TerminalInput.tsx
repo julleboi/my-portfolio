@@ -1,7 +1,7 @@
 import React from 'react';
 
 type TerminalInputProps = {
-  cb: (newLine: string) => void
+  cb: (input: string) => void
 };
 
 export default (props: TerminalInputProps) => {
@@ -30,8 +30,9 @@ export default (props: TerminalInputProps) => {
       <input 
         type='text' 
         className='form-control'
-        id='terminal-input-field' 
+        id='terminal-input-field'
         onKeyDown={handleKeyDown}
+        autoFocus={true}
       />
     </div>
   );

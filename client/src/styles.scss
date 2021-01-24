@@ -1,1 +1,44 @@
+$body-bg: #111;
+$body-color: #2b2;
+
+// Theme colors
+$primary: #222;
+$danger: #b22;
+
 @import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=VT323');
+
+body {
+  scrollbar-color: $primary;
+  font-family: 'VT323', monospace;
+}
+
+#terminal {
+  height: 80vh;
+  min-height: 80vh;
+  max-height: 80vh;
+}
+
+#terminal-lines-container {
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #181818;
+  color: $body-color;
+}
+
+#terminal-input-prefix, #terminal-input-field {
+  border-radius: 0%;
+  border-style: hidden;
+  background-color: $primary;
+  color: $body-color;
+}
+
+.terminal-line {
+  overflow-wrap: break-word;
+}
+
+#terminal-titlebar {
+  background-color: #383838;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

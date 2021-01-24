@@ -11,9 +11,17 @@ export default () => {
   const [lines, setLines] = useState<[string, string][]>(INITIAL_LINES);
 
   const handleInput = (input: string) => {
-    // TODO: Handle input
-    const output = '';
-    setLines([...lines, [input, output]]);
+    console.log(input);
+    switch (input) {
+      case "clear":
+        setLines([]);
+        break;
+      case "help":
+        setLines([...lines, [input, 'Sorry, can\'t help you. :(']]);
+        break;
+      default:
+        setLines([...lines, [input, `Command '${input}' not found.`]]);
+    }
   }
 
   const linesEndRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default () => 
-  <div className='container-fluid mx-3' id='contact'>
-    WIP
+  <div id='contact'>
+    Links:
+    <ul>
+      <li>
+        <a href='https://github.com/julleboi'>GitHub</a>
+      </li>
+    </ul>
   </div>

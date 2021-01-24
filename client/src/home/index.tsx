@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default () => 
-  <div className='container-fluid mx-3' id='home'>
-    Hi, 
+  <div id='home'>
     <p>
+      Hi, <br />
       Welcome to my portfolio.
     </p>
   </div>

@@ -56,6 +56,10 @@ a[href] {
   color: $secondary-color;
 }
 
+#terminal-titlebar a:hover {
+  text-decoration: none;
+}
+
 #terminal-titlebar-buttons {
   font-size: 150%;
   font-weight: 800;
@@ -63,10 +67,6 @@ a[href] {
 
 #terminal-titlebar-buttons a {
   margin-left: 20px;
-}
-
-#terminal-titlebar-buttons a:hover {
-  text-decoration: none;
 }
 
 #links {
@@ -79,5 +79,6 @@ a[href] {
 
 #content {
   color: $secondary-color;
-  margin: 20px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }

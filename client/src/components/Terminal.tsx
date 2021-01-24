@@ -1,33 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import TerminalInput from './TerminalInput';
 import TerminalLine from './TerminalLine';
 import TerminalTitlebar from './TerminalTitlebar';
 
 const INITIAL_LINES: [string, string][] = [
-  ['', 'Welcome to my portfolio!']
+  ['', ' Available commands:'                    ],
+  ['', ' - cd <new_dir> [ Changes directories ]' ],
+  ['', ' - clear        [ Clears all lines    ]' ],
+  ['', ' - help         [ Lists all commands  ]' ],
 ];
 
 export default () => {
+  const history = useHistory();
   const [lines, setLines] = useState<[string, string][]>(INITIAL_LINES);
 
   const handleInput = (input: string) => {
-    console.log(input);
-    switch (input) {
-      case "clear":
+    const [ command, ...params ] = input.split(' ');
+    switch (command) {
+      case 'cd':
+        if (params.length === 1) {
+          history.push(params[0]);
+        }
+        break;
+      case 'clear':
         setLines([]);
         break;
-      case "help":
-        setLines([...lines, [input, 'Sorry, can\'t help you. :(']]);
-        break;
-      case "skills":
-        setLines([...lines,
-          [input, 'My skills include:'],
-          ['', '- Something'],
-          ['', '- Something else']
-        ]);
+      case 'help':
+        setLines([...lines, ...INITIAL_LINES]);
         break;
       default:
-        setLines([...lines, [input, `Command '${input}' not found.`]]);
+        setLines([...lines, [input, `Command '${command}' not found.`]]);
     }
   }
 

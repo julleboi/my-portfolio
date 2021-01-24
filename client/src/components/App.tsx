@@ -1,4 +1,9 @@
 import React from 'react';
-import Terminal from './Terminal';
 
-export default () => <Terminal />
+export default () => 
+  <div className='container' id='home'>
+    Hi, 
+    <p>
+      Welcome to my portfolio.
+    </p>
+  </div>

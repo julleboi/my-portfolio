@@ -8,10 +8,16 @@ $danger: #b22;
 @import '~bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=VT323');
 
+$secondary-color: #eee;
+
 body {
   scrollbar-color: $primary;
   font-family: 'VT323', monospace;
   font-size: large;
+}
+
+a[href] {
+  color: $body-color;
 }
 
 #terminal {
@@ -20,8 +26,10 @@ body {
 }
 
 #terminal-lines-container {
-  width: 80vw;
-  height: 40vh;
+  width: 60vw;
+  min-width: 400px;
+  height: 20vh;
+  min-height: 200px;
   overflow: auto;
   background-color: #181818;
   color: $body-color;
@@ -44,11 +52,31 @@ body {
   border-top-right-radius: 5px;
 }
 
+#terminal-titlebar a {
+  color: $secondary-color;
+}
+
 #terminal-titlebar-buttons {
   font-size: 150%;
   font-weight: 800;
 }
 
+#terminal-titlebar-buttons a {
+  margin-left: 20px;
+}
+
 #terminal-titlebar-buttons a:hover {
   text-decoration: none;
+}
+
+#links {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 150%;
+}
+
+#home {
+  color: $secondary-color;
 }

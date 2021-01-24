@@ -1,28 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default () => 
-  <div 
-    id='terminal-titlebar' 
-    className='navbar navbar-dark'
-  >
-    <a 
-      className='navbar-brand'
-      href='#'
+export default () => {
+  return (
+    <div 
+      id='terminal-titlebar' 
+      className='navbar navbar-dark'
     >
-      &lt;&frasl;&gt; julle.dev
-    </a>
-    <div id='terminal-titlebar-buttons'>
-      <a 
-        className='text-light'
-        href='#'
-      >
-        <span>&#95;</span>
-      </a>
-      <a 
-        className='text-light ml-3'
-        href='#'
-      >
-        <span>&times;</span>
-      </a>
+      <div className='navbar-brand'>
+        <Link to='/'>
+          &lt;&frasl;&gt; julle.dev
+        </Link>
+      </div>
+      <div id='terminal-titlebar-buttons'>
+        <Link to='?minimized=1'>
+          <span>&#95;</span>
+        </Link>
+        <Link to='?closed=1'>
+          <span>&times;</span>
+        </Link>
+      </div>
     </div>
-  </div>
+  )
+}

@@ -23,10 +23,17 @@ a[href] {
 #terminal {
   bottom: 0;
   right: 0;
-  position: absolute;
-  opacity: 0.90;
+  position: fixed;
+  opacity: 0.9;
   width: 40vw;
   min-width: 300px;
+  animation-name: slide-in;
+  animation-duration: 500ms;
+}
+
+@keyframes slide-in {
+  from { bottom: -50%; }
+  to   { bottom: 0;    }
 }
 
 #terminal-lines-container {
@@ -37,11 +44,19 @@ a[href] {
   color: $body-color;
 }
 
-#terminal-input-prefix, #terminal-input-field {
+#terminal-input * {
   border-radius: 0%;
   border-style: hidden;
   background-color: $primary;
   color: $body-color;
+}
+
+#terminal-input-prefix {
+  padding-right: 0;
+}
+
+#terminal-input-field {
+  padding-left: 1ch;
 }
 
 .terminal-line {
@@ -67,19 +82,26 @@ a[href] {
 }
 
 #links {
-  @extend .my-4;
+  @extend .m-4;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   font-size: 150%;
+  border-bottom: $body-color solid 1px;
 }
 
 #content {
   @extend .container;
+  font-size: 120%;
   color: $secondary-color;
 }
 
 .hide {
   display: none;
+}
+
+#contact-form input, #contact-form textarea, #contact-form button {
+  @extend .mb-3;
+  background-color: $primary;
 }

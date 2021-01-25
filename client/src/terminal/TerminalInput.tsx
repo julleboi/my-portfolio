@@ -11,10 +11,12 @@ export default (props: TerminalInputProps) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
       case 'Enter': 
-        if (event.currentTarget.value) {
-          props.cb(event.currentTarget.value);
+        const input = event.currentTarget.value;
+        if (input) {
+          props.cb(input);
           event.currentTarget.value = '';
         }
+        break;
       default:
     }
   }

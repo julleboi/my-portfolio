@@ -25,7 +25,6 @@ export default () =>
       <li>C / C++</li>
       <li>Rust</li>
       <li>WebAssembly</li>
-      <li>Akka HTTP</li>
       <li>Shell / Bash</li>
       <li>Agile / Scrum</li>
     </ul>

@@ -11,7 +11,7 @@ import Contact from './contact';
 import NotFound from './notfound';
 
 import { 
-  MemoryRouter as Router, 
+  BrowserRouter as Router, 
   Switch,
   Route,
   Link,

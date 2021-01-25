@@ -100,10 +100,12 @@ a[href] {
   display: none;
 }
 
-#contact-form input, #contact-form textarea, #contact-form button {
-  @extend .mb-3;
-  background-color: $primary;
-  color: $secondary-color;
-  border-radius: 0;
-  border-style: hidden;
+#contact-form {
+  input, textarea, button {
+    @extend .mb-3;
+    background-color: $primary;
+    color: $secondary-color;
+    border-radius: 0;
+    border-style: hidden;
+  }
 }

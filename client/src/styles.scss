@@ -24,7 +24,7 @@ a[href] {
   bottom: 0;
   right: 0;
   position: fixed;
-  opacity: 0.9;
+  opacity: 0.8;
   width: 40vw;
   min-width: 300px;
   animation-name: slide-in;
@@ -104,4 +104,5 @@ a[href] {
 #contact-form input, #contact-form textarea, #contact-form button {
   @extend .mb-3;
   background-color: $primary;
+  border-style: hidden;
 }

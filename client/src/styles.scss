@@ -1,0 +1,111 @@
+$body-bg: #111;
+$body-color: #2b2;
+
+// Theme colors
+$primary: #222;
+$danger: #b22;
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=VT323');
+
+$secondary-color: #eee;
+
+body {
+  scrollbar-color: $primary;
+  font-family: 'VT323', monospace;
+  font-size: large;
+}
+
+a[href] {
+  color: $body-color;
+}
+
+#terminal {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  opacity: 0.8;
+  width: 40vw;
+  min-width: 300px;
+  animation-name: slide-in;
+  animation-duration: 500ms;
+}
+
+@keyframes slide-in {
+  from { bottom: -50%; }
+  to   { bottom: 0;    }
+}
+
+#terminal-lines-container {
+  height: 15vh;
+  min-height: 200px;
+  overflow: auto;
+  background-color: #181818;
+  color: $body-color;
+}
+
+#terminal-input * {
+  border-radius: 0;
+  border-style: hidden;
+  background-color: $primary;
+  color: $body-color;
+}
+
+#terminal-input-prefix {
+  padding-right: 0;
+}
+
+#terminal-input-field {
+  padding-left: 1ch;
+}
+
+.terminal-line {
+  overflow-wrap: break-word;
+}
+
+#terminal-titlebar {
+  @extend .py-0;
+  background-color: #383838;
+}
+
+#terminal-titlebar a {
+  color: $secondary-color;
+}
+
+#terminal-titlebar a:hover {
+  text-decoration: none;
+}
+
+#terminal-titlebar-hide {
+  font-size: 150%;
+}
+
+#links {
+  @extend .m-4;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 150%;
+  border-bottom: $body-color solid 1px;
+}
+
+#content {
+  @extend .container;
+  font-size: 120%;
+  color: $secondary-color;
+}
+
+.hide {
+  display: none;
+}
+
+#contact-form {
+  input, textarea, button {
+    @extend .mb-3;
+    background-color: $primary;
+    color: $secondary-color;
+    border-radius: 0;
+    border-style: hidden;
+  }
+}

@@ -1,6 +1,7 @@
+
 import React from 'react';
 
 export default () => 
-  <div>
-    Hello world!
+  <div id='projects'>
+    WIP
   </div>

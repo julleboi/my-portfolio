@@ -20,8 +20,7 @@ import {
 
 ReactDOM.render(
   <Router>
-    <Terminal />
-    <div className='container my-4' id='links'>
+    <div id='links'>
       <Link to='/'>Home</Link>                |
       <Link to='/about'>About</Link>          |
       <Link to='/skills'>Skills</Link>        |
@@ -39,4 +38,5 @@ ReactDOM.render(
         <Redirect to='/notfound' />
       </Switch>
     </div>
+    <Terminal />
   </Router>, document.getElementById("root"));

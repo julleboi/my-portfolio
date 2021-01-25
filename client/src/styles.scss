@@ -21,14 +21,16 @@ a[href] {
 }
 
 #terminal {
-  width: max-content;
-  height: max-content;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  opacity: 0.90;
+  width: 40vw;
+  min-width: 300px;
 }
 
 #terminal-lines-container {
-  width: 60vw;
-  min-width: 400px;
-  height: 20vh;
+  height: 15vh;
   min-height: 200px;
   overflow: auto;
   background-color: #181818;
@@ -47,9 +49,9 @@ a[href] {
 }
 
 #terminal-titlebar {
+  @extend .py-0;
   background-color: #383838;
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 #terminal-titlebar a {
@@ -60,25 +62,24 @@ a[href] {
   text-decoration: none;
 }
 
-#terminal-titlebar-buttons {
+#terminal-titlebar-hide {
   font-size: 150%;
-  font-weight: 800;
-}
-
-#terminal-titlebar-buttons a {
-  margin-left: 20px;
 }
 
 #links {
+  @extend .my-4;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 150%;
 }
 
 #content {
+  @extend .container;
   color: $secondary-color;
-  margin-left: 10vw;
-  margin-right: 10vw;
+}
+
+.hide {
+  display: none;
 }

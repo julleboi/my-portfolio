@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 type TerminalInputProps = {
-  cb: (input: string) => void
+  cb: (input: string) => void;
 };
 
 export default (props: TerminalInputProps) => {

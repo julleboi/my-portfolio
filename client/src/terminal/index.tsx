@@ -14,6 +14,7 @@ const INITIAL_LINES: [string, string][] = [
 export default () => {
   const history = useHistory();
   const [lines, setLines] = useState<[string, string][]>(INITIAL_LINES);
+  const [hidden, setHidden] = useState<boolean>(false);
 
   const handleInput = (input: string) => {
     const [ command, ...params ] = input.split(' ');
@@ -41,17 +42,22 @@ export default () => {
   }, [lines]);
 
   return(
-    <div className='container-fluid mt-3' id='terminal'>
-      <TerminalTitlebar />
-      <div id='terminal-lines-container' className='p-3'>
-        {
-          lines.map(([i, o], idx) => 
-            <TerminalLine key={idx} input={i} output={o} />
-          )
-        }
-      <div key='linesEnd' ref={linesEndRef} />
-      </div>
-      <TerminalInput cb={handleInput} />
+    <div id='terminal'>
+      <TerminalTitlebar cb={() => setHidden(!hidden)} />
+      <div 
+        className={hidden ? 'hide' : ''}
+        id='terminal-body-container'
+      >
+        <div className='p-3'id='terminal-lines-container'>
+          {
+            lines.map(([i, o], idx) => 
+              <TerminalLine key={idx} input={i} output={o} />
+            )
+          }
+          <div key='linesEnd' ref={linesEndRef} />
+        </div>
+        <TerminalInput cb={handleInput} />
+        </div>
     </div>
   );
 }

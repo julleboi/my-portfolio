@@ -1,0 +1,27 @@
+service: portfolio-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  projects:
+    handler: functions/projects.handler
+    events:
+      - http:
+          path: /projects
+          method: get
+  contact:
+    handler: functions/contact.handler
+    events:
+      - http:
+          path: /contact
+          method: post
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000

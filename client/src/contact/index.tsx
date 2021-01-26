@@ -16,7 +16,7 @@ export default () => {
     fetch('http://localhost:3000/dev/contact', {method: 'post', body})
       .then(res => res.json())
       .then((res: { response: string }) => res.response)
-      .then(res => setResponse(res), err => setResponse(err));
+      .then(setResponse, setResponse);
   }
 
   if (response) {

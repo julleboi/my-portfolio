@@ -20,6 +20,10 @@ a[href] {
   color: $body-color;
 }
 
+#notfound {
+  text-align: center;
+}
+
 #terminal {
   bottom: 0;
   right: 0;
@@ -108,4 +112,8 @@ a[href] {
     border-radius: 0;
     border-style: hidden;
   }
+}
+
+#contact-response {
+  text-align: center;
 }

@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "removeComments": true,
+    "outDir": ".build",
+    "rootDir": "funtions"
   }
 }

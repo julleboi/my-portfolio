@@ -1,23 +1,29 @@
-$body-bg: #111;
-$body-color: #2b2;
+$body-bg: #fff;
+$body-color: #000;
 
 // Theme colors
-$primary: #222;
-$danger: #b22;
+$primary: #eee;
+$danger: #e44;
 
 @import '~bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=VT323');
 
-$secondary-color: #eee;
+$secondary-color: #222;
 
 body {
   scrollbar-color: $primary;
   font-family: 'VT323', monospace;
-  font-size: large;
 }
 
 a[href] {
   color: $body-color;
+}
+
+body,
+input, 
+textarea, 
+button {
+  letter-spacing: 0.1em;
 }
 
 #notfound {
@@ -25,12 +31,10 @@ a[href] {
 }
 
 #terminal {
-  bottom: 0;
-  right: 0;
   position: fixed;
-  opacity: 0.8;
-  width: 40vw;
-  min-width: 300px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   animation-name: slide-in;
   animation-duration: 500ms;
 }
@@ -41,17 +45,20 @@ a[href] {
 }
 
 #terminal-lines-container {
-  height: 15vh;
-  min-height: 200px;
+  @extend .py-1;
+  @extend .px-4;
+  height: 10vh;
+  min-height: 8em;
   overflow: auto;
-  background-color: #181818;
+  background-color: rgba($body-bg, 0.5);
   color: $body-color;
+  border-bottom: $body-color solid 1px;
 }
 
 #terminal-input * {
   border-radius: 0;
   border-style: hidden;
-  background-color: $primary;
+  background-color: $body-bg;
   color: $body-color;
 }
 
@@ -69,11 +76,12 @@ a[href] {
 
 #terminal-titlebar {
   @extend .py-0;
-  background-color: #383838;
+  height: 3em;
+  background-color: $body-color;
 }
 
 #terminal-titlebar a {
-  color: $secondary-color;
+  color: $primary;
 }
 
 #terminal-titlebar a:hover {
@@ -85,18 +93,27 @@ a[href] {
 }
 
 #links {
-  @extend .m-4;
+  @extend .mb-4;
+  min-height: 2em;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   font-size: 150%;
   border-bottom: $body-color solid 1px;
 }
 
+#links a:hover {
+  font-size: 120%;
+  font-weight: 120%;
+}
+
 #content {
   @extend .container;
-  font-size: 120%;
+  @extend .py-4;
+  margin-bottom: 3em;
+  font-size: 150%;
   color: $secondary-color;
 }
 
@@ -105,7 +122,9 @@ a[href] {
 }
 
 #contact-form {
-  input, textarea, button {
+  input, 
+  textarea, 
+  button {
     @extend .mb-3;
     background-color: $primary;
     color: $secondary-color;

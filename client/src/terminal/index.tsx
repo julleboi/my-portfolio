@@ -48,7 +48,7 @@ export default () => {
         className={hidden ? 'hide' : ''}
         id='terminal-body-container'
       >
-        <div className='p-3'id='terminal-lines-container'>
+        <div id='terminal-lines-container'>
           {
             lines.map(([i, o], idx) => 
               <TerminalLine key={idx} input={i} output={o} />

@@ -5,7 +5,8 @@
   "author": "Julius Turunen",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --open --config webpack.dev.ts",
+    "start": "yarn start:dev",
+    "start:dev": "webpack serve --open --config webpack.dev.ts",
     "build": "webpack --mode production --config webpack.prod.ts"
   },
   "devDependencies": {

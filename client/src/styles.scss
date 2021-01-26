@@ -45,8 +45,7 @@ button {
 }
 
 #terminal-lines-container {
-  @extend .py-1;
-  @extend .px-4;
+  padding: 0 2ch 0 2ch;
   height: 10vh;
   min-height: 8em;
   overflow: auto;
@@ -55,19 +54,14 @@ button {
   border-bottom: $body-color solid 1px;
 }
 
-#terminal-input * {
+#terminal-input-prefix,
+#terminal-input-field {
   border-radius: 0;
   border-style: hidden;
   background-color: $body-bg;
   color: $body-color;
-}
-
-#terminal-input-prefix {
   padding-right: 0;
-}
-
-#terminal-input-field {
-  padding-left: 1ch;
+  padding-left: 2ch;
 }
 
 .terminal-line {
@@ -76,7 +70,7 @@ button {
 
 #terminal-titlebar {
   @extend .py-0;
-  height: 3em;
+  height: 2em;
   background-color: $body-color;
 }
 
@@ -112,7 +106,7 @@ button {
 #content {
   @extend .container;
   @extend .py-4;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   font-size: 150%;
   color: $secondary-color;
 }

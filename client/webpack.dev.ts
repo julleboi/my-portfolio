@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack';
+import { Configuration, EnvironmentPlugin } from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
@@ -31,7 +31,12 @@ const config: Configuration = {
       }
     ]
   },
-  plugins: [htmlPlugin],
+  plugins: [
+    new EnvironmentPlugin({
+      CONTACT_API_URL: 'http://localhost:3000/dev/contact'
+    }),
+    htmlPlugin
+  ],
   performance: { hints: false }
 };
 

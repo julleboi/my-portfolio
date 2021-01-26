@@ -1,4 +1,4 @@
-import * as webpack from 'webpack';
+import { Configuration } from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
@@ -6,7 +6,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html'
 });
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: 'development',
   entry: './src/index.tsx',
   resolve: { extensions: ['.ts', '.tsx', '.js', '.json'] },

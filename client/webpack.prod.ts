@@ -1,5 +1,5 @@
 import path from 'path';
-import * as webpack from 'webpack';
+import { Configuration } from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
@@ -8,7 +8,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: './index.html'
 });
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: 'production',
   entry: './src/index.tsx',
   output: {

@@ -2,7 +2,6 @@ import React from 'react';
 
 type ContactInputProps = {
   type: 'name' | 'email' | 'message';
-  ref: React.RefObject<HTMLInputElement | HTMLTextAreaElement>;
   placeholder?: string;
 }
 
@@ -23,7 +22,6 @@ export default (props: ContactInputProps) => {
             className='form-control'
             id={id}
             placeholder={props.placeholder}
-            ref={props.ref as React.RefObject<HTMLInputElement>}
           />
         </div>
       );
@@ -38,7 +36,6 @@ export default (props: ContactInputProps) => {
             className='form-control'
             id={id}
             placeholder={props.placeholder}
-            ref={props.ref as React.RefObject<HTMLTextAreaElement>}
           />
         </div>
       );

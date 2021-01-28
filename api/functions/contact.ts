@@ -5,7 +5,7 @@ import {
 } from 'aws-lambda';
 import { SES } from 'aws-sdk';
 import { SendEmailRequest } from 'aws-sdk/clients/ses';
-import { IsString, IsEmail } from 'class-validator';
+import { MaxLength, IsEmail } from 'class-validator';
 import { compose } from '@lambda-middleware/compose';
 import { classValidator } from '@lambda-middleware/class-validator';
 import { errorHandler } from '@lambda-middleware/http-error-handler';
@@ -13,13 +13,14 @@ import { jsonSerializer } from '@lambda-middleware/json-serializer';
 import { cors } from '@lambda-middleware/cors';
 
 class ContactForm {
-  @IsString()
+  @MaxLength(100)
   name!: string;
 
+  @MaxLength(100)
   @IsEmail()
   email!: string;
 
-  @IsString()
+  @MaxLength(1000)
   message!: string;
 }
 

@@ -1,46 +1,45 @@
 import React from 'react';
+import { ContactFieldProps } from './ContactField';
 
-type ContactInputProps = {
-  type: 'name' | 'email' | 'message';
-  placeholder?: string;
-}
+export type ContactInputElement = HTMLInputElement |  HTMLTextAreaElement;
+type ContactInputProps = ContactFieldProps & { id: string };
+
+const DefaultProps: React.InputHTMLAttributes<ContactInputElement> = {
+  required: true,
+  className: 'form-control',
+  maxLength: 1000
+};
 
 export default (props: ContactInputProps) => {
-  const name = props.type;
-  const id = `${props.type}-input`;
-
   switch (props.type) {
     case 'name':
     case 'email':
       return (
-        <div className='contact-input'>
-          <label className='text-capitalize' htmlFor={id}>
-            {name}
-          </label>
-          <input
-            type={props.type}
-            className='form-control'
-            id={id}
-            placeholder={props.placeholder}
-          />
-        </div>
+        <input 
+          {...DefaultProps}
+          type={props.type}
+          id={props.id}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+        />
       );
-
     case 'message':
       return (
-        <div className='contact-input'>
-          <label className='text-capitalize' htmlFor={id}>
-            {name}
-          </label>
-          <textarea
-            className='form-control'
-            id={id}
-            placeholder={props.placeholder}
-          />
-        </div>
+        <textarea 
+          {...DefaultProps}
+          id={props.id}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+        />
       );
-
-    default:
-      throw new Error(`Unknown ContactInput type ${props.type}`);
+    default: 
+      return (
+        <input
+          disabled
+          className='form-control bg-danger'
+          id={props.id}
+          value='Bad field'
+        />
+      );
   }
 }

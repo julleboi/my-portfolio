@@ -87,7 +87,7 @@ button {
 }
 
 #links {
-  @extend .mb-4;
+  margin-bottom: 2em;
   min-height: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -123,10 +123,12 @@ button {
     background-color: $primary;
     color: $secondary-color;
     border-radius: 0;
-    border-style: hidden;
+    border: $body-color solid 1px;
   }
 }
 
 #contact-response {
+  @extend .p-3;
   text-align: center;
+  border: $body-color solid 1px;
 }

@@ -26,64 +26,16 @@ button {
   letter-spacing: 0.1em;
 }
 
-#notfound {
-  text-align: center;
-}
-
-#terminal {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  animation-name: slide-in;
-  animation-duration: 500ms;
-}
-
-@keyframes slide-in {
-  from { bottom: -50%; }
-  to   { bottom: 0;    }
-}
-
-#terminal-lines-container {
-  padding: 0 2ch 0 2ch;
-  height: 10vh;
-  min-height: 8em;
-  overflow: auto;
-  background-color: rgba($body-bg, 0.5);
-  color: $body-color;
-  border-bottom: $body-color solid 1px;
-}
-
-#terminal-input-prefix,
-#terminal-input-field {
-  border-radius: 0;
-  border-style: hidden;
-  background-color: $body-bg;
-  color: $body-color;
-  padding-right: 0;
-  padding-left: 2ch;
-}
-
-.terminal-line {
-  overflow-wrap: break-word;
-}
-
-#terminal-titlebar {
-  @extend .py-0;
-  height: 2em;
-  background-color: $body-color;
-}
-
-#terminal-titlebar a {
-  color: $primary;
-}
-
-#terminal-titlebar a:hover {
-  text-decoration: none;
-}
-
-#terminal-titlebar-hide {
+#content {
+  @extend .container;
+  @extend .py-4;
+  margin-bottom: 2em;
   font-size: 150%;
+  color: $secondary-color;
+}
+
+.hide {
+  display: none;
 }
 
 #links {
@@ -101,34 +53,4 @@ button {
 #links a:hover {
   font-size: 120%;
   font-weight: 120%;
-}
-
-#content {
-  @extend .container;
-  @extend .py-4;
-  margin-bottom: 2em;
-  font-size: 150%;
-  color: $secondary-color;
-}
-
-.hide {
-  display: none;
-}
-
-#contact-form {
-  input, 
-  textarea, 
-  button {
-    @extend .mb-3;
-    background-color: $primary;
-    color: $secondary-color;
-    border-radius: 0;
-    border: $body-color solid 1px;
-  }
-}
-
-#contact-response {
-  @extend .p-3;
-  text-align: center;
-  border: $body-color solid 1px;
 }

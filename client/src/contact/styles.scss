@@ -1,0 +1,19 @@
+@import '../styles.scss';
+
+#contact-form {
+  input, 
+  textarea, 
+  button {
+    @extend .mb-3;
+    background-color: $primary;
+    color: $secondary-color;
+    border-radius: 0;
+    border: $body-color solid 1px;
+  }
+}
+
+#contact-response {
+  @extend .p-3;
+  text-align: center;
+  border: $body-color solid 1px;
+}

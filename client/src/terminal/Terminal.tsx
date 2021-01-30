@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import TerminalInput from './TerminalInput';
 import TerminalLine from './TerminalLine';
 import TerminalTitlebar from './TerminalTitlebar';
+import './styles.scss';
 
 const INITIAL_LINES: [string, string][] = [
   ['', ' Available commands:'                    ],

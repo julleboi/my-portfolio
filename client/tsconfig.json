@@ -6,8 +6,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
-    "outDir": "./dist/",
+    "outDir": "./dist/"
   }
 }

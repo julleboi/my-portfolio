@@ -1,1 +1,1 @@
-export const CONTACT_API_URL = process.env.CONTACT_API_URL || 'http://localhost:3000/dev/contact';
+export const CONTACT_API_URL = /*process.env.CONTACT_API_URL ||*/ 'http://localhost:3000/dev/contact';

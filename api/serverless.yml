@@ -24,7 +24,7 @@ functions:
 
 custom:
   webpack:
-    webpackConfig: './webpack.config.js'
+    webpackConfig: './webpack.config.ts'
     includeModules: true
     packager: 'yarn'
   serverless-offline:

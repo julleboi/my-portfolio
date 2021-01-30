@@ -3,8 +3,6 @@ import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
-// CAN BE FIXED W/ WP v. 4.X
-
 const config: Configuration = {
   entry: path.resolve(__dirname, './src/index.tsx'),
   output: { filename: '[name].bundle.js' },

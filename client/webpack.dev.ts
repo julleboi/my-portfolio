@@ -6,9 +6,14 @@ const config: Configuration = {
   mode: 'development',
   devServer: {
     host: 'localhost',
-    port: 3000,
+    port: 8000,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/**': {
+        target: 'http://localhost:3000'
+      }
+    }
   }
 };
 

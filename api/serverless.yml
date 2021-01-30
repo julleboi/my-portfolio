@@ -25,7 +25,10 @@ functions:
 custom:
   webpack:
     webpackConfig: './webpack.config.ts'
-    includeModules: true
+    includeModules:
+      packagePath: './package.json'
+      forceExclude:
+        - aws-sdk
     packager: 'yarn'
   serverless-offline:
     httpPort: 3000

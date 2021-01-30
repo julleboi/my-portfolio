@@ -4,3 +4,4 @@ dist/
 .build/
 .serverless/
 .webpack/
+.env

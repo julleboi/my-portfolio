@@ -9,7 +9,7 @@ const config: Configuration = {
   resolve: { extensions: ['.ts', '.tsx', '.js', '.json'] },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
       { 
         test: /\.(scss)$/, 
         use: [

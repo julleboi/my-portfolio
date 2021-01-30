@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ContactField from './ContactField';
-import { CONTACT_API_URL } from '../constants';
 
 export default () => { 
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -17,7 +16,7 @@ export default () => {
     }
     const body = JSON.stringify({name, email, message});
     setIsSending(true);
-    fetch(CONTACT_API_URL, {method: 'post', body})
+    fetch('/contact', {method: 'post', body})
       .then(res => res.json())
       .then(({response}) => setResponse(response))
       .catch(err => {

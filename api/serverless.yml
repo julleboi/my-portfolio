@@ -15,7 +15,7 @@ provider:
 
 functions:
   contact:
-    handler: functions/contact.handler
+    handler: src/contact.handler
     events:
       - http:
           path: /contact

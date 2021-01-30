@@ -1,7 +1,8 @@
 import path from 'path';
-import { Configuration, EnvironmentPlugin } from "webpack";
+import { Configuration } from "webpack";
 import nodeExternals from 'webpack-node-externals';
 import slsw from 'serverless-webpack';
+import Dotenv from 'dotenv-webpack';
 
 const config: Configuration = {
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
@@ -29,7 +30,9 @@ const config: Configuration = {
     ]
   },
   plugins: [
-    new EnvironmentPlugin(['EMAIL']),
+    new Dotenv({
+      path: '../.env'
+    }),
   ]
 };
 

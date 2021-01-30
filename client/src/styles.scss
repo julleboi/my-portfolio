@@ -2,7 +2,7 @@ $body-bg: #fff;
 $body-color: #000;
 
 // Theme colors
-$primary: #eee;
+$primary: #f4f4f4;
 $danger: #e44;
 
 @import '~bootstrap/scss/bootstrap.scss';
@@ -28,7 +28,7 @@ button {
 
 #content {
   @extend .container;
-  @extend .py-4;
+  @extend .p-4;
   margin-bottom: 2em;
   font-size: 150%;
   color: $secondary-color;

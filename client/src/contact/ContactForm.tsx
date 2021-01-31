@@ -14,9 +14,12 @@ export default () => {
       setResponse('Please fill all fields.');
       return;
     }
-    const body = JSON.stringify({name, email, message});
     setIsSending(true);
-    fetch('/contact', {method: 'post', body})
+    fetch('/contact', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name, email, message})
+    })
       .then(res => res.json())
       .then(({response}) => setResponse(response))
       .catch(err => {

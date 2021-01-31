@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn start:dev",
-    "start:dev": "AWS_PROFILE=serverless nodemon --exec \"sls offline --noPrependStageInUrl\""
+    "start:dev": "AWS_PROFILE=serverless nodemon --exec \"sls offline --prefix api --noPrependStageInUrl\""
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.71",

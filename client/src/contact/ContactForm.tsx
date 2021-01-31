@@ -15,7 +15,7 @@ export default () => {
       return;
     }
     setIsSending(true);
-    fetch('/contact', {
+    fetch('/api/contact', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name, email, message})

@@ -1,0 +1,15 @@
+$js-yellow: #ff4;
+$ts-blue: #44f;
+$scala-red: #f44;
+$rusty: #944;
+$link-color: #44f;
+$my-gray: #999;
+
+$theme-colors: (
+  'js-yellow': $js-yellow,
+  'ts-blue': $ts-blue,
+  'scala-red': $scala-red,
+  'rusty': $rusty,
+  'link-color': $link-color,
+  'my-gray': $my-gray
+);

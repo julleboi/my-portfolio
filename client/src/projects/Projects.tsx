@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import LanguageBadge from './LanguageBadge';
+import StarsBadge from './StarsBadge';
 import './styles.scss';
 
 type Repository = {
   name: string;
   html_url: string;
   description: string;
-  updated_at: string;
-  created_at: string;
   language: string;
   stargazers_count: number;
 }
@@ -43,14 +43,21 @@ export default () => {
         <div id='projects-container'>
           {
             repos.map((repo, idx) => 
-              <div className='card projects-container-item' key={idx}>
-                <div className='card-body py-2'>
-                  <h5 className='card-title'>{repo.name}</h5>
-                  <h6 className='card-subtitle text-muted'>{repo.description}</h6>
+              <div className='projects-item' key={idx}>
+                <div className='projects-item-body'>
+                  <div className='projects-item-title'>{repo.name}</div>
+                  <div className='projects-item-text'>
+                    {repo.description}
+                  </div>
                 </div>
-                <div className='card-footer py-2'>
-                  <div>{repo.language}</div>
-                  <a href={repo.html_url}>GitHub link</a>
+                <div className='projects-item-footer'>
+                  <a className='projects-item-link' href={repo.html_url}>
+                    GitHub
+                  </a>
+                  <div className='projects-item-badges'>
+                    <StarsBadge count={repo.stargazers_count} />
+                    <LanguageBadge type={repo.language} />
+                  </div>
                 </div>
               </div>
             )

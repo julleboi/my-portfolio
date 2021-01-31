@@ -21,6 +21,8 @@ jobs:
           ${{ secrets.ENV }}
           EOF
       - name: Install dependencies
-        run: cd api && yarn install
+        working-directory: api
+        run: yarn install
       - name: Deploy lambdas
-        run: cd api && serverless deploy -s prod
+        working-directory: api
+        run: serverless deploy -s prod

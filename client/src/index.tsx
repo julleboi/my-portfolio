@@ -21,9 +21,9 @@ ReactDOM.render(
   <Router>
     <div id='links'>
       <Link to='/'>Home</Link>                |
-      <Link to='/about'>About</Link>          |
-      <Link to='/projects'>Projects</Link>    |
-      <Link to='/contact'>Contact</Link>
+      <Link to='/about'>About me</Link>       |
+      <Link to='/projects'>My projects</Link> |
+      <Link to='/contact'>Contact me</Link>
     </div>
     <div id='content'>
       <Switch>

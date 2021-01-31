@@ -4,7 +4,7 @@ $body-bg: #fff;
 $body-color: #000;
 
 // Theme colors
-$primary: #f4f4f4;
+$primary: #eee;
 $danger: #e44;
 
 @import '~bootstrap/scss/bootstrap.scss';
@@ -38,6 +38,10 @@ button {
 
 .hide {
   display: none;
+}
+
+.my-shadow {
+  box-shadow: 8px 16px $my-gray;
 }
 
 #links {

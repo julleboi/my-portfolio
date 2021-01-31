@@ -12,10 +12,10 @@
   @extend .m-4;
   @extend .border-secondary;
   @extend .rounded-0;
+  @extend .my-shadow;
   width: fit-content;
   max-width: 60vmin;
   font-size: 1rem;
-  box-shadow: 8px 16px $my-gray;
 }
 
 .projects-item-body {

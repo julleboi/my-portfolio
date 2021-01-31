@@ -25,6 +25,6 @@ jobs:
         with:
           args: deploy
         env:
-          SERVICE_ROOT: 'api'
+          working-directort: './api'
           AWS_ACCESS_KEY: ${{ secrets.AWS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}

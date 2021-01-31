@@ -26,6 +26,6 @@ jobs:
       - name: Deployment
         working-directory: ./api
         env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
         run: yarn run sls deploy -s prod

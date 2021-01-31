@@ -1,0 +1,28 @@
+name: API
+
+on:
+  push:
+    branches:
+      - master
+      - actions
+
+jobs:
+  deploy-api:
+    name: Deploying API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - name: Serverless AWS authentication
+        run: sls config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
+      - name: Create env file
+        run: |
+          cat > .env << EOF
+          ${{ secrets.ENV }}
+          EOF
+      - name: Install dependencies
+        run: yarn install
+      - name: Deploy lambdas
+        run: sls deploy -s prod

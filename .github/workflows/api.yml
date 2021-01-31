@@ -28,4 +28,4 @@ jobs:
         run: yarn run sls config --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
       - name: Deploy lambdas
         working-directory: ./api
-        run: yarn run psls deploy -s prod
+        run: yarn run sls deploy -s prod

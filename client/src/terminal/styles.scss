@@ -1,0 +1,56 @@
+@import '../styles.scss';
+
+#terminal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  animation-name: slide-in;
+  animation-duration: 500ms;
+}
+
+@keyframes slide-in {
+  from { bottom: -50%; }
+  to   { bottom: 0;    }
+}
+
+#terminal-lines-container {
+  padding: 0 2ch 0 2ch;
+  height: 10vh;
+  min-height: 8em;
+  overflow: auto;
+  background-color: rgba($body-bg, 0.5);
+  color: $body-color;
+  border-bottom: $body-color solid 1px;
+}
+
+#terminal-input-prefix,
+#terminal-input-field {
+  border-radius: 0;
+  border-style: hidden;
+  background-color: $body-bg;
+  color: $body-color;
+  padding-right: 0;
+  padding-left: 2ch;
+}
+
+.terminal-line {
+  overflow-wrap: break-word;
+}
+
+#terminal-titlebar {
+  @extend .py-0;
+  background-color: $body-color;
+}
+
+#terminal-titlebar a {
+  color: $primary;
+}
+
+#terminal-titlebar a:hover {
+  text-decoration: none;
+}
+
+#terminal-titlebar-hide {
+  font-size: 150%;
+}

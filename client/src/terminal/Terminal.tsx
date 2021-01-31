@@ -3,9 +3,14 @@ import { useHistory } from 'react-router-dom';
 import TerminalInput from './TerminalInput';
 import TerminalLine from './TerminalLine';
 import TerminalTitlebar from './TerminalTitlebar';
+import './styles.scss';
 
-const INITIAL_LINES: [string, string][] = [
-  ['', ' Available commands:'                    ],
+const INITIAL_LINES: [string, string][] = [
+  ['', 'Welcome to my portfolio!']
+];
+
+const COMMANDS_LINES: [string, string][] = [
+  ['', 'Available commands:'                     ],
   ['', ' - cd <new_dir> [ Changes directories ]' ],
   ['', ' - clear        [ Clears all lines    ]' ],
   ['', ' - help         [ Lists all commands  ]' ],
@@ -28,7 +33,7 @@ export default () => {
         setLines([]);
         break;
       case 'help':
-        setLines([...lines, ...INITIAL_LINES]);
+        setLines([...lines, ...COMMANDS_LINES]);
         break;
       default:
         setLines([...lines, [input, `Command '${command}' not found.`]]);
@@ -48,7 +53,7 @@ export default () => {
         className={hidden ? 'hide' : ''}
         id='terminal-body-container'
       >
-        <div className='p-3'id='terminal-lines-container'>
+        <div id='terminal-lines-container'>
           {
             lines.map(([i, o], idx) => 
               <TerminalLine key={idx} input={i} output={o} />

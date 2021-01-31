@@ -1,0 +1,34 @@
+service: portfolio-api
+
+package:
+  individually: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: serverless
+  lambdaHasingVersion: '20201221'
+
+functions:
+  contact:
+    handler: src/contact.handler
+    events:
+      - http:
+          path: /contact
+          method: post
+          cors: true
+
+custom:
+  webpack:
+    webpackConfig: './webpack.config.ts'
+    includeModules:
+      packagePath: './package.json'
+      forceExclude:
+        - aws-sdk
+    packager: 'yarn'
+  serverless-offline:
+    httpPort: 3000

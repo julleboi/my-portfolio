@@ -5,17 +5,28 @@ type TerminalLineProps = {
   output: string
 };
 
-export default (props: TerminalLineProps) => 
-  <div className='terminal-line'>
-    {
-      props.input
-        ? `< ${props.input}`
-        : props.output
+export default (props: TerminalLineProps) =>  {
+  const Inner = () => {
+    if (props.input) {
+      return (
+        <React.Fragment>
+          {`< ${props.input}`}
+          <br />
+          {`> ${props.output}`}
+        </React.Fragment>
+      );
     }
-    <br/>
-    {
-      props.input
-        ? `> ${props.output}`
-        : ''
-    }
-  </div>
+
+    return (
+      <React.Fragment>
+        {props.output}
+      </React.Fragment>
+    );
+  }
+
+  return (
+    <div className='terminal-line'>
+      <Inner />
+    </div>
+  );
+}

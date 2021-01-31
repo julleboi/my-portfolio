@@ -1,38 +1,20 @@
-import * as webpack from 'webpack';
-import HtmlWebPackPlugin from 'html-webpack-plugin';
-import autoprefixer from 'autoprefixer';
+import { Configuration } from 'webpack';
+import { merge } from 'webpack-merge';
+import common from './webpack.common';
 
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: './public/index.html'
-});
-
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: 'development',
-  entry: './src/index.tsx',
-  resolve: { extensions: ['.ts', '.tsx', '.js', '.json'] },
-  module: {
-    rules: [
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      { 
-        test: /\.(scss)$/, 
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { 
-            loader: 'postcss-loader', 
-            options: { 
-              postcssOptions: { 
-                plugins: [autoprefixer] 
-              } 
-            } 
-          },
-          { loader: 'sass-loader' }
-        ]
+  devServer: {
+    host: 'localhost',
+    port: 8000,
+    hot: true,
+    historyApiFallback: true,
+    proxy: {
+      '/api/**': {
+        target: 'http://localhost:3000'
       }
-    ]
-  },
-  plugins: [htmlPlugin],
-  performance: { hints: false }
+    }
+  }
 };
 
-export default config;
+export default merge(common, config);

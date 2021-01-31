@@ -1,32 +1,29 @@
-import { 
-  APIGatewayProxyResult,
-  APIGatewayEvent,
-  Context
-} from 'aws-lambda';
 import { SES } from 'aws-sdk';
 import { SendEmailRequest } from 'aws-sdk/clients/ses';
-import { IsString, MaxLength, IsEmail } from 'class-validator';
-import { compose } from '@lambda-middleware/compose';
-import { classValidator } from '@lambda-middleware/class-validator';
-import { errorHandler } from '@lambda-middleware/http-error-handler';
-import { jsonSerializer } from '@lambda-middleware/json-serializer';
-import { cors } from '@lambda-middleware/cors';
+import middy from '@middy/core';
+import httpJsonBodyParser from '@middy/http-json-body-parser';
+import httpErrorHandler from '@middy/http-error-handler';
+import validator from '@middy/validator';
 
 const ses = new SES();
 
-class ContactForm {
-  @IsString()
-  @MaxLength(100)
-  name!: string;
-
-  @IsString()
-  @MaxLength(100)
-  @IsEmail()
-  email!: string;
-
-  @IsString()
-  @MaxLength(1000)
-  message!: string;
+const inputSchema = {
+  type: 'object',
+  properties: {
+    name: { 
+      type: 'string', 
+      maxLength: 10
+    },
+    email: { 
+      type: 'string',
+      maxLength: 100,
+      format: 'email'
+    },
+    message: {
+      type: 'string',
+      maxLength: 1000
+    }
+  }
 }
 
 const createEmail = (name: string, email: string, message: string): SendEmailRequest => {
@@ -56,24 +53,17 @@ const createEmail = (name: string, email: string, message: string): SendEmailReq
   }
 }
 
-async function handleContactForm({
-  body: { name, email, message },
-}: {
-  body: ContactForm;
-}): Promise<{ response: string }> {
+const processRequest = async (event) => {
+  const { name, email, message } = event.body;
   const req = createEmail(name, email, message);
   await ses.sendEmail(req).promise();
-  return { response: 'Sent.' };
+  return {
+    statusCode: 200,
+    body: JSON.stringify({response: 'Thank you!'})
+  }
 }
 
-export const handler: (
-  event: APIGatewayEvent,
-  context: Context
-) => Promise<APIGatewayProxyResult> = compose(
-  cors(),
-  errorHandler(),
-  jsonSerializer(),
-  classValidator({
-    bodyType: ContactForm
-  })
-)(handleContactForm);
+export const handler = middy(processRequest)
+  .use(httpJsonBodyParser())
+  .use(validator({inputSchema}))
+  .use(httpErrorHandler());

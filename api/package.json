@@ -26,11 +26,9 @@
     "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
-    "@lambda-middleware/class-validator": "^2.0.1",
-    "@lambda-middleware/compose": "^1.2.0",
-    "@lambda-middleware/cors": "^2.0.0",
-    "@lambda-middleware/http-error-handler": "^2.0.0",
-    "@lambda-middleware/json-serializer": "^2.1.1",
-    "class-validator": "^0.13.1"
+    "@middy/core": "^2.0.0-alpha.3",
+    "@middy/http-error-handler": "^2.0.0-alpha.3",
+    "@middy/http-json-body-parser": "^2.0.0-alpha.3",
+    "@middy/validator": "^2.0.0-alpha.3"
   }
 }

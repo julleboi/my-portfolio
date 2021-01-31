@@ -23,9 +23,9 @@ jobs:
       - name: Install dependencies
         working-directory: ./api
         run: yarn install
-      - name: Authentication
+      - name: Deployment
         working-directory: ./api
-        run: yarn run sls config --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
-      - name: Deploy lambdas
-        working-directory: ./api
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
         run: yarn run sls deploy -s prod

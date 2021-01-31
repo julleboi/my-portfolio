@@ -10,7 +10,6 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: serverless
   lambdaHasingVersion: '20201221'
 
 functions:

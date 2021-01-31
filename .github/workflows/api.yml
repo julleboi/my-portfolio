@@ -25,7 +25,7 @@ jobs:
         run: yarn install
       - name: Serverless authentication
         working-directory: ./api
-        run: sls config --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
+        run: yarn run sls config --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
       - name: Deploy lambdas
         working-directory: ./api
-        run: sls deploy -s prod
+        run: yarn run psls deploy -s prod

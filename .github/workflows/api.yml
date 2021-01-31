@@ -20,11 +20,11 @@ jobs:
           cat > .env << EOF
           ${{ secrets.ENV }}
           EOF
+      - run: 'cd api'
       - name: Serverless deploy
         uses: serverless/github-action@master
         with:
           args: deploy
         env:
-          SERVICE_ROOT: 'api'
           AWS_ACCESS_KEY: ${{ secrets.AWS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}

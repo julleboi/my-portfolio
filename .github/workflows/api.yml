@@ -15,14 +15,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
-      - name: Serverless AWS authentication
-        run: sls config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
       - name: Create env file
         run: |
           cat > .env << EOF
           ${{ secrets.ENV }}
           EOF
-      - name: Install dependencies
-        run: yarn install
-      - name: Deploy lambdas
-        run: sls deploy -s prod
+      - name: Serverless deploy
+        uses: serverless/github-action@master
+        with:
+          args: deploy
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}

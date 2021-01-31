@@ -21,8 +21,11 @@ jobs:
           ${{ secrets.ENV }}
           EOF
       - name: Install dependencies
-        working-directory: api
+        working-directory: ./api
         run: yarn install
+      - name: Serverless authentication
+        working-directory: ./api
+        run: sls config --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
       - name: Deploy lambdas
-        working-directory: api
-        run: serverless deploy -s prod
+        working-directory: ./api
+        run: sls deploy -s prod

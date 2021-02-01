@@ -6,16 +6,14 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn start:dev",
-    "start:dev": "AWS_PROFILE=serverless nodemon --exec \"sls offline --prefix api --noPrependStageInUrl\""
+    "start:dev": "nodemon --exec \"sls offline --prefix api --noPrependStageInUrl\""
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.71",
-    "@types/aws-sdk": "^2.7.0",
     "@types/dotenv-webpack": "^5.0.0",
+    "@types/node-fetch": "^2.5.8",
     "@types/webpack": "^4.41.26",
     "@types/webpack-node-externals": "^2.5.0",
     "awesome-typescript-loader": "^5.2.1",
-    "aws-sdk": "^2.834.0",
     "dotenv-webpack": "^6.0.0",
     "nodemon": "^2.0.7",
     "serverless": "^2.20.1",
@@ -29,6 +27,7 @@
     "@middy/core": "^2.0.0-alpha.3",
     "@middy/http-error-handler": "^2.0.0-alpha.3",
     "@middy/http-json-body-parser": "^2.0.0-alpha.3",
-    "@middy/validator": "^2.0.0-alpha.3"
+    "@middy/validator": "^2.0.0-alpha.3",
+    "node-fetch": "^2.6.1"
   }
 }

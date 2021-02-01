@@ -1,4 +1,21 @@
-service: portfolio-api
+service: julledev-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: prod
+  memorySize: 512
+  timeout: 5
+  apiGateway:
+    minimumCompressionSize: 1024
+    usagePlan:
+      quota:
+        limit: 500
+        offset: 2
+        period: MONTH
+      throttle:
+        burstLimit: 20
+        rateLimit: 10
 
 package:
   individually: true
@@ -6,19 +23,6 @@ package:
 plugins:
   - serverless-webpack
   - serverless-offline
-
-provider:
-  name: aws
-  runtime: nodejs12.x
-
-functions:
-  contact:
-    handler: src/contact.handler
-    events:
-      - http:
-          path: /contact
-          method: post
-          cors: true
 
 custom:
   webpack:
@@ -30,3 +34,12 @@ custom:
     packager: 'yarn'
   serverless-offline:
     httpPort: 3000
+
+functions:
+  contact:
+    handler: src/contact.handler
+    events:
+      - http:
+          path: /contact
+          method: post
+          cors: true

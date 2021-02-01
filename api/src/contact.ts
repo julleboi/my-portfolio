@@ -1,69 +1,78 @@
-import { SES } from 'aws-sdk';
-import { SendEmailRequest } from 'aws-sdk/clients/ses';
+import fetch from 'node-fetch';
 import middy from '@middy/core';
 import httpJsonBodyParser from '@middy/http-json-body-parser';
 import httpErrorHandler from '@middy/http-error-handler';
 import validator from '@middy/validator';
 
-const ses = new SES();
-
 const inputSchema = {
-  type: 'object',
+  required: ['name', 'email', 'message'],
   properties: {
-    name: { 
-      type: 'string', 
-      maxLength: 10
-    },
-    email: { 
-      type: 'string',
-      maxLength: 100,
-      format: 'email'
-    },
-    message: {
-      type: 'string',
-      maxLength: 1000
+    body: {
+      type: 'object',
+      properties: {
+        name: { 
+          type: 'string', 
+          maxLength: 50
+        },
+        email: { 
+          type: 'string',
+          maxLength: 50,
+          format: 'email'
+        },
+        message: {
+          type: 'string',
+          maxLength: 1000
+        }
+      }
     }
   }
 }
 
-const createEmail = (name: string, email: string, message: string): SendEmailRequest => {
-  return {
-    Destination: { ToAddresses: [ process.env.EMAIL ] },
-    Message: {
-      Body: {
-        Html: { 
-          Data: `
-            <q>${message}</q>
-            <br />
-            <address>
-              Sent by ${name}.
-              Email: <a href="mailto:${email}">${email}</a>
-            </address>
-            `
-        },
-        Text: {
-          Data: `${message}\n\nSent by ${name}.\nEmail: ${email}`
-        }
-      },
-      Subject: { 
-        Data: `Contact request from ${name}`
-      }
-    },
-    Source: process.env.EMAIL
-  }
+const createMessage = (name: string, email: string, message: string) => {
+  return (`
+  New contact request from ${name}.
+
+  Message:
+  ---
+  ${message}
+  ---
+
+  Email: ${email}
+  `);
 }
 
-const processRequest = async (event) => {
+const sendNotification = async (message: string) => {
+  const url = `https://api.telegram.org/bot${process.env.TG_TOKEN}/sendMessage`;
+  const res = await fetch(url, {
+    method: 'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      chat_id: process.env.TG_CHAT_ID,
+      text: message
+    })
+  });
+  return res.status;
+}
+
+const notifier = async (event) => {
   const { name, email, message } = event.body;
-  const req = createEmail(name, email, message);
-  await ses.sendEmail(req).promise();
-  return {
-    statusCode: 200,
-    body: JSON.stringify({response: 'Thank you!'})
+  const notificationMessage = createMessage(name, email, message);
+  const responseStatus = await sendNotification(notificationMessage);
+  switch (responseStatus) {
+    case 200:
+      return {
+        statusCode: 200,
+        body: JSON.stringify({response: 'Message delivered!'})
+      }
+    default:
+      return {
+        statusCode: 500,
+        body: JSON.stringify({response: 'Could not send your message. :('})
+      }
   }
 }
 
-export const handler = middy(processRequest)
+export const handler = middy(notifier)
   .use(httpJsonBodyParser())
   .use(validator({inputSchema}))
   .use(httpErrorHandler());

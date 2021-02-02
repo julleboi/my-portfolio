@@ -51,11 +51,6 @@
   @extend .mx-1;
 }
 
-.projects-item-link {
-  @extend .text-link-color;
-  @extend .card-link;
-}
-
 .badge-base {
   @extend .badge;
   color: $primary;

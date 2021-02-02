@@ -28,4 +28,4 @@ jobs:
           aws-region: us-east-1
       - name: Copy files to S3 bucket
         working-directory: ./client
-        run: aws s3 sync ./dist/ s3://julledev-static
+        run: aws s3 sync ./dist/ s3://julledev-static --delete

@@ -5,27 +5,19 @@ import httpErrorHandler from '@middy/http-error-handler';
 import validator from '@middy/validator';
 
 const inputSchema = {
-  required: ['name', 'email', 'message'],
+  type: 'object',
   properties: {
     body: {
       type: 'object',
       properties: {
-        name: { 
-          type: 'string', 
-          maxLength: 50
-        },
-        email: { 
-          type: 'string',
-          maxLength: 50,
-          format: 'email'
-        },
-        message: {
-          type: 'string',
-          maxLength: 1000
-        }
-      }
+        name: { type: 'string', maxLength: 50 },
+        email: { type: 'string',  maxLength: 50, format: 'email' },
+        message: { type: 'string', maxLength: 1000 }
+      },
+      required: ['name', 'email', 'message']
     }
-  }
+  },
+  required: ['body']
 }
 
 const createMessage = (name: string, email: string, message: string) => {
@@ -62,12 +54,12 @@ const notifier = async (event) => {
     case 200:
       return {
         statusCode: 200,
-        body: JSON.stringify({response: 'Message delivered!'})
+        body: JSON.stringify({ response: 'Message delivered!' })
       }
     default:
       return {
         statusCode: 500,
-        body: JSON.stringify({response: 'Could not send your message. :('})
+        body: JSON.stringify({response: 'Could not forward your message... Try again later'})
       }
   }
 }

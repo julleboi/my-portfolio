@@ -61,11 +61,3 @@
   color: $primary;
   background-color: $my-gray;
 }
-
-.language-badge {
-  @extend .badge-base;
-}
-
-.stars-badge {
-  @extend .badge-base;
-}

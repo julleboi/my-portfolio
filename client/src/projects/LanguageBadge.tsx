@@ -25,7 +25,7 @@ export default (props: LangaugeBadgeProps) => {
   }
 
   return (
-    <span className={`language-badge bg-${theme}`}>
+    <span className={`badge-base bg-${theme}`}>
       {props.type}
     </span>
   );

@@ -51,9 +51,7 @@ export default () => {
                   </div>
                 </div>
                 <div className='projects-item-footer'>
-                  <a className='projects-item-link' href={repo.html_url}>
-                    GitHub
-                  </a>
+                  <a href={repo.html_url}>GitHub</a>
                   <div className='projects-item-badges'>
                     <StarsBadge count={repo.stargazers_count} />
                     <LanguageBadge type={repo.language} />

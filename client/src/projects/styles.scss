@@ -13,7 +13,7 @@
   @extend .border-secondary;
   @extend .rounded-0;
   @extend .my-shadow;
-  width: fit-content;
+  width: max-content;
   max-width: 50vmin;
   font-size: 1rem;
 }
@@ -25,9 +25,6 @@
 .projects-item-body {
   @extend .card-body;
   @extend .py-2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .projects-item-title {
@@ -54,21 +51,8 @@
   @extend .mx-1;
 }
 
-.projects-item-link {
-  @extend .text-link-color;
-  @extend .card-link;
-}
-
 .badge-base {
   @extend .badge;
   color: $primary;
   background-color: $my-gray;
-}
-
-.language-badge {
-  @extend .badge-base;
-}
-
-.stars-badge {
-  @extend .badge-base;
 }

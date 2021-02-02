@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ContactField from './ContactField';
+import { contact } from '../api';
 
 export default () => { 
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -8,24 +9,15 @@ export default () => {
   const [email, setEmail] = useState<string>();
   const [message, setMessage] = useState<string>();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!name || !email || !message) {
       setResponse('Please fill all fields.');
       return;
     }
     setIsSending(true);
-    fetch('/api/contact', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name, email, message})
-    })
-      .then(res => res.json())
-      .then(({response}) => setResponse(response))
-      .catch(err => {
-        console.error(err);
-        setResponse('Could not send the message. :(');
-      });
+    const res = await contact(name, email, message);
+    setResponse(res.response);
     setIsSending(false);
   }
 

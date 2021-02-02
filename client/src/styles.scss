@@ -18,7 +18,7 @@ body {
 }
 
 a[href] {
-  color: $body-color;
+  color: $link-color;
 }
 
 body,
@@ -54,8 +54,11 @@ button {
   align-items: center;
   font-size: 150%;
   border-bottom: $body-color solid 1px;
-}
 
-#links a:hover {
-  transform: scale(1.2);
+  a {
+    color: $body-color;
+  }
+  a:hover {
+    transform: scale(1.2);
+  }
 }

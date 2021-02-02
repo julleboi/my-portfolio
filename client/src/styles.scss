@@ -45,7 +45,7 @@ button {
 }
 
 #links {
-  margin-bottom: 2em;
+  @extend .mb-2;
   min-height: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -56,6 +56,7 @@ button {
   border-bottom: $body-color solid 1px;
 
   a {
+    @extend .mx-2;
     color: $body-color;
   }
   a:hover {

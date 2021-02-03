@@ -27,7 +27,7 @@ export const contact = async (
 ): Promise<{response: string}> => {
   const res = await apiPost('/contact', {name, email, message});
 
-  if (![200, 500].includes(res.status)) {
+  if (res.status === 400) {
     return { response: 'Please check all fields for correctness' };
   }
 

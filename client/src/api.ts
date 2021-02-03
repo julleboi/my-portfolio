@@ -15,7 +15,8 @@ const apiPost = (path: string, body: Record<string, unknown>) => {
   return apiRequest(path, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
+    mode: 'cors'
   })
 }
 

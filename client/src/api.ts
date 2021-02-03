@@ -5,7 +5,7 @@ const isDev = () => {
   return false;
 }
 
-const BASE_URL = isDev() ? '/api' : 'api.julle.dev';
+const BASE_URL = isDev() ? '/api' : 'https://api.julle.dev';
 
 const apiRequest = (path: string, options?: RequestInit) => {
   return fetch(BASE_URL+path, options);

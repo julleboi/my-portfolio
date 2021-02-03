@@ -51,4 +51,5 @@ functions:
       - http:
           path: /contact
           method: post
-          cors: true
+          cors:
+            origin: 'https://julle.dev'

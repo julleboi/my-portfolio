@@ -1,8 +1,10 @@
-import fetch from 'node-fetch';
 import middy from '@middy/core';
 import httpJsonBodyParser from '@middy/http-json-body-parser';
 import httpErrorHandler from '@middy/http-error-handler';
 import validator from '@middy/validator';
+import cors from '@middy/http-cors';
+
+import fetch from 'node-fetch';
 import sanitizeHtml from 'sanitize-html';
 import dedent from 'dedent';
 
@@ -22,7 +24,7 @@ const inputSchema = {
   required: ['body']
 }
 
-const cleanTags = (input: string): string => sanitizeHtml(input, {allowedTags: []});
+const cleanTags = (input: string) => sanitizeHtml(input, {allowedTags: []});
 
 const createMessage = (name: string, email: string, message: string) => {
   const cleanName = cleanTags(name);
@@ -74,4 +76,5 @@ const notifier = async (event) => {
 export const handler = middy(notifier)
   .use(httpJsonBodyParser())
   .use(validator({inputSchema}))
-  .use(httpErrorHandler());
+  .use(httpErrorHandler())
+  .use(cors({origin: 'https://julle.dev', credentials: false}));

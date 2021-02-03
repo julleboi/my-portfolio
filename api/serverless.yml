@@ -52,4 +52,8 @@ functions:
           path: /contact
           method: post
           cors:
+            allowCredentials: false
             origin: 'https://julle.dev'
+            headers: 
+              - Content-Type
+              - Origin

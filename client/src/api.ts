@@ -16,19 +16,23 @@ const apiPost = (path: string, body: Record<string, unknown>) => {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(body),
-    mode: 'cors'
   })
 }
 
-export const contact = async (name: string, email: string, message: string) => {
+
+export const contact = async (
+  name: string, 
+  email: string, 
+  message: string
+): Promise<{response: string}> => {
   const res = await apiPost('/contact', {name, email, message});
 
   if (res.status === 400) {
-    return { response: 'Please check the fields for correctness' };
+    return { response: 'Please check all fields for correctness' };
   }
 
   try {
-    const { response }: { response: string } = await res.json();
+    const { response } = await res.json();
     return { response };
   } catch (err) {
     console.error(err);

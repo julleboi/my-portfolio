@@ -2,7 +2,7 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "removeComments": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": [
     "./**/*.ts"

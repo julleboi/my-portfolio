@@ -3,42 +3,40 @@ import middy from '@middy/core';
 import httpJsonBodyParser from '@middy/http-json-body-parser';
 import httpErrorHandler from '@middy/http-error-handler';
 import validator from '@middy/validator';
+import sanitizeHtml from 'sanitize-html';
+import dedent from 'dedent';
 
 const inputSchema = {
-  required: ['name', 'email', 'message'],
+  type: 'object',
   properties: {
     body: {
       type: 'object',
       properties: {
-        name: { 
-          type: 'string', 
-          maxLength: 50
-        },
-        email: { 
-          type: 'string',
-          maxLength: 50,
-          format: 'email'
-        },
-        message: {
-          type: 'string',
-          maxLength: 1000
-        }
-      }
+        name: { type: 'string', maxLength: 50 },
+        email: { type: 'string',  maxLength: 50, format: 'email' },
+        message: { type: 'string', maxLength: 1000 }
+      },
+      required: ['name', 'email', 'message']
     }
-  }
+  },
+  required: ['body']
 }
 
+const cleanTags = (input: string): string => sanitizeHtml(input, {allowedTags: []});
+
 const createMessage = (name: string, email: string, message: string) => {
-  return (`
-  New contact request from ${name}.
+  const cleanName = cleanTags(name);
+  const cleanEmail = cleanTags(email);
+  const cleanMessage = cleanTags(message);
 
-  Message:
-  ---
-  ${message}
-  ---
+  return dedent`
+    You have a new contact request from <b>${cleanName}</b>!
 
-  Email: ${email}
-  `);
+    <u>Message:</u>
+    <pre>${cleanMessage}</pre>
+
+    Email: ${cleanEmail}
+  `;
 }
 
 const sendNotification = async (message: string) => {
@@ -48,7 +46,8 @@ const sendNotification = async (message: string) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       chat_id: process.env.TG_CHAT_ID,
-      text: message
+      text: message,
+      parse_mode: 'HTML'
     })
   });
   return res.status;
@@ -67,7 +66,7 @@ const notifier = async (event) => {
     default:
       return {
         statusCode: 500,
-        body: JSON.stringify({response: 'Could not send your message. :('})
+        body: JSON.stringify({response: 'Could not forward your message... Try again later'})
       }
   }
 }

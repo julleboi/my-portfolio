@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles.scss';
+import { 
+  BrowserRouter as Router, 
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom';
 
 import Terminal from './terminal';
 import Home from './home';
@@ -9,13 +15,7 @@ import Projects from './projects';
 import Contact from './contact';
 import NotFound from './notfound';
 
-import { 
-  BrowserRouter as Router, 
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from 'react-router-dom';
+import './styles.scss';
 
 ReactDOM.render(
   <Router>

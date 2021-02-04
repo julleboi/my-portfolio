@@ -31,7 +31,7 @@ jobs:
   deploy:
     name: Deployment
     needs: [build]
-    if: ${{ github.ref == 'refs/heads/main' && github.events_name == 'push' }}
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

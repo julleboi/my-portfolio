@@ -3,6 +3,8 @@ import LanguageBadge from './LanguageBadge';
 import StarsBadge from './StarsBadge';
 import './styles.scss';
 
+const FILTER_NAMES = ['congenial-barnacle'];
+
 type Repository = {
   name: string;
   html_url: string;
@@ -20,6 +22,7 @@ export default () => {
     setIsLoading(true);
     fetch('https://api.github.com/users/julleboi/repos')
       .then(res => res.json())
+      .then((res: Repository[]) => res.filter(({name}) => !FILTER_NAMES.includes(name)))
       .then(res => setRepos(res))
       .catch(() => setError('Could not fetch my projects from GitHub :('))
       .finally(() => setIsLoading(false));

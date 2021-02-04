@@ -9,16 +9,22 @@ export default () => {
   const [email, setEmail] = useState<string>();
   const [message, setMessage] = useState<string>();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!name || !email || !message) {
       setResponse('Please fill all fields.');
       return;
     }
     setIsSending(true);
-    const res = await contact(name, email, message);
-    setResponse(res.response);
-    setIsSending(false);
+    contact(name, email, message)
+      .then((res) => {
+        setResponse(res.response);
+      })
+      .catch((err) => {
+        console.error(err);
+        setResponse('Something went wrong');
+      })
+      .finally(() => setIsSending(false));
   }
 
   return (

@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: 'us-east-1'
-  stage: prod
+  stage: dev
   memorySize: 256
   timeout: 5
   apiGateway:
@@ -28,6 +28,13 @@ plugins:
   - serverless-domain-manager
 
 custom:
+  domain:
+    prod:
+      enable: true
+      prefix: api
+    dev:
+      enable: false
+      prefix: api-dev
   webpack:
     webpackConfig: './webpack.config.ts'
     includeModules:
@@ -36,8 +43,9 @@ custom:
   serverless-offline:
     httpPort: 3000
   customDomain:
-    domainName: 'api.julle.dev'
-    certificateName: 'julle.dev'
+    enabled: ${self:custom.domain.${opt:stage, self:provider.stage}.enable, false}
+    domainName: ${self:custom.domain.${opt:stage, self:provider.stage}.prefix}.julle.dev
+    certificateName: julle.dev
     createRoute53Record: true
 
 functions:

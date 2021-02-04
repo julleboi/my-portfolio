@@ -24,9 +24,9 @@ const inputSchema = {
   required: ['body']
 }
 
-const cleanTags = (input: string) => sanitizeHtml(input, {allowedTags: []});
+export const cleanTags = (input: string) => sanitizeHtml(input, {allowedTags: []});
 
-const createMessage = (name: string, email: string, message: string) => {
+export const createMessage = (name: string, email: string, message: string) => {
   const cleanName = cleanTags(name);
   const cleanEmail = cleanTags(email);
   const cleanMessage = cleanTags(message);
@@ -41,7 +41,7 @@ const createMessage = (name: string, email: string, message: string) => {
   `;
 }
 
-const sendNotification = async (message: string) => {
+export const sendNotification = async (message: string) => {
   const url = `https://api.telegram.org/bot${process.env.TG_TOKEN}/sendMessage`;
   const res = await fetch(url, {
     method: 'POST', 
@@ -52,25 +52,23 @@ const sendNotification = async (message: string) => {
       parse_mode: 'HTML'
     })
   });
-  return res.status;
+  
+  return res.ok;
 }
 
 const notifier = async (event) => {
   const { name, email, message } = event.body;
-  const notificationMessage = createMessage(name, email, message);
-  const responseStatus = await sendNotification(notificationMessage);
-  switch (responseStatus) {
-    case 200:
-      return {
-        statusCode: 200,
-        body: JSON.stringify({response: 'Message delivered!'})
-      }
-    default:
-      return {
-        statusCode: 500,
-        body: JSON.stringify({response: 'Could not forward your message... Try again later'})
-      }
+  const notification = createMessage(name, email, message);
+  const isSuccess = await sendNotification(notification);
+  
+  if (isSuccess) {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({response: 'Message delivered!'})
+    }
   }
+  
+  throw new Error('Message could not be forwarded.');
 }
 
 export const handler = middy(notifier)

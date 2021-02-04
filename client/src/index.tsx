@@ -13,7 +13,7 @@ import Home from './home';
 import About from './about';
 import Projects from './projects';
 import Contact from './contact';
-import NotFound from './notfound';
+import NotFound from './notFound';
 
 import './styles.scss';
 

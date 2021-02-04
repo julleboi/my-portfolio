@@ -12,8 +12,8 @@ export default () => {
         I am interested in web development, and I have experience with
         TypeScript and React. However, I am very motivated to learn
         new technologies, such as WebAssembly and serverless more 
-        recently. Get a better grasp of my skills by having a look at my 
-        <Link to='/projects'>projects</Link>, to see what I have been 
+        recently. Get a better grasp of my skills by having a look at 
+        my <Link to='/projects'>projects</Link>, to see what I have been 
         working on more recently.
       </p>
       <p>

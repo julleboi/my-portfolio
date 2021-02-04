@@ -1,16 +1,6 @@
 @import './colors.scss';
-
-$body-bg: #fff;
-$body-color: #000;
-
-// Theme colors
-$primary: #eee;
-$danger: #e44;
-
 @import '~bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=VT323');
-
-$secondary-color: #222;
 
 body {
   scrollbar-color: $primary;

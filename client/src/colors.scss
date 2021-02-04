@@ -1,3 +1,9 @@
+$body-bg: #fff;
+$body-color: #000;
+$primary: #eee;
+$danger: #e44;
+$secondary-color: #222;
+
 $js-yellow: #ff4;
 $ts-blue: #44f;
 $scala-red: #f44;
@@ -6,6 +12,11 @@ $link-color: #44f;
 $my-gray: #999;
 
 $theme-colors: (
+  'body-bg': $body-bg,
+  'body-color': $body-color,
+  'primary': $primary,
+  'danger': $danger,
+  'secondary-color': $secondary-color,
   'js-yellow': $js-yellow,
   'ts-blue': $ts-blue,
   'scala-red': $scala-red,

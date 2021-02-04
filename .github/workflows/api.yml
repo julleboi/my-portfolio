@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - testing
   pull_request:
 
 jobs:
-  ci-cd:
+  test:
+    name: Test suite
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository 
@@ -27,10 +27,28 @@ jobs:
         working-directory: ./api
         run: yarn test
 
+  deploy:
+    name: Deployment
+    needs: [test] # Waits for these jobs to complete first
+    # Only when pushed to branch 'main'
+    if: github.ref == 'refs/heads/main' && github.events_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Install dependencies
+        working-directory: ./api
+        run: yarn install
+
       - name: Deploy
         working-directory: ./api
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
         run: yarn run sls deploy -s prod
-        if: github.ref == 'refs/heads/main' && github.events_name == 'push'

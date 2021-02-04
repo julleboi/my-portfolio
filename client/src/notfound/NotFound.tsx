@@ -3,7 +3,7 @@ import './styles.scss'
 
 export default () => {
   return (
-    <div id='notfound'>
+    <div id='not-found'>
       <h1>
         Not found :(
       </h1>

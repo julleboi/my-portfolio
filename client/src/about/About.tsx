@@ -9,11 +9,12 @@ export default () => {
         Aalto University, on the verge of graduation. 
       </p>
       <p>
-        I am interested in web development and I have experience with
+        I am interested in web development, and I have experience with
         TypeScript and React. However, I am very motivated to learn
-        new technologies, such as WebAssembly more recently. To get a
-        better picture, you can take a look at my <Link to='/projects'>
-        projects</Link> to see what I have been working on recently.
+        new technologies, such as WebAssembly and serverless more 
+        recently. Get a better grasp of my skills by having a look at my 
+        <Link to='/projects'>projects</Link>, to see what I have been 
+        working on more recently.
       </p>
       <p>
         My GitHub is <a href='https://github.com/julleboi'>

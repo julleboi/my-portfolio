@@ -1,7 +1,7 @@
 name: Client
 
 on:
-  workflow_discpatch:
+  workflow_dispatch:
   pull_request:
   push:
     branches:

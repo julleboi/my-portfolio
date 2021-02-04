@@ -1,10 +1,11 @@
 name: Client
 
 on:
+  workflow_discpatch:
+  pull_request:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   build:
@@ -29,8 +30,7 @@ jobs:
 
   deploy:
     name: Deployment
-    needs: [build] # Waits for these jobs to complete first
-    # Only when pushed to branch 'main'
+    needs: [build]
     if: github.ref == 'refs/heads/main' && github.events_name == 'push'
     runs-on: ubuntu-latest
     steps:

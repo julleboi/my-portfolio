@@ -1,10 +1,11 @@
 name: API
 
 on:
+  workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   test:
@@ -29,8 +30,7 @@ jobs:
 
   deploy:
     name: Deployment
-    needs: [test] # Waits for these jobs to complete first
-    # Only when pushed to branch 'main'
+    needs: [test]
     if: github.ref == 'refs/heads/main' && github.events_name == 'push'
     runs-on: ubuntu-latest
     steps:

@@ -17,9 +17,7 @@ export default () => {
     }
     setIsSending(true);
     contact(name, email, message)
-      .then((res) => {
-        setResponse(res.response);
-      })
+      .then((res) => setResponse(res.response))
       .catch((err) => {
         console.error(err);
         setResponse('Something went wrong');

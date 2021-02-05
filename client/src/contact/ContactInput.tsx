@@ -7,7 +7,6 @@ type ContactInputProps = ContactFieldProps & { id: string };
 const DefaultProps: React.InputHTMLAttributes<ContactInputElement> = {
   required: true,
   className: 'form-control',
-  maxLength: 1000
 };
 
 export default (props: ContactInputProps) => {
@@ -17,6 +16,7 @@ export default (props: ContactInputProps) => {
       return (
         <input 
           {...DefaultProps}
+          maxLength={50}
           type={props.type}
           id={props.id}
           placeholder={props.placeholder}
@@ -27,6 +27,8 @@ export default (props: ContactInputProps) => {
       return (
         <textarea 
           {...DefaultProps}
+          maxLength={1000}
+          rows={6}
           id={props.id}
           placeholder={props.placeholder}
           onChange={props.onChange}

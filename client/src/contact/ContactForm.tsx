@@ -37,7 +37,7 @@ export default () => {
       />
       <ContactField 
         type='email' 
-        placeholder='Your email adress' 
+        placeholder='Your email address' 
         onChange={e => setEmail(e.currentTarget.value)}
       />
       <ContactField 

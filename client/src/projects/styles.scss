@@ -10,11 +10,12 @@
 .projects-item {
   @extend .card;
   @extend .m-4;
-  @extend .border-dark;
+  @extend .border-primary;
   @extend .rounded-0;
   @extend .my-shadow;
+  font-size: smaller;
+  background-color: $background;
   width: fit-content;
-  font-size: 80%;
 }
 
 .projects-item:hover {
@@ -28,6 +29,7 @@
 
 .projects-item-title {
   @extend .card-title;
+  color: $primary;
   text-decoration: underline 1px;
   font-size: 150%;
   font-weight: 150%;
@@ -35,17 +37,17 @@
 
 .projects-item-text {
   @extend .card-text;
-  @extend .text-muted;
+  color: $secondary;
 }
 
 .projects-item-footer {
   @extend .card-footer;
   border: none;
-  background-color: $body-bg;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: $background;
 }
 
 .projects-item-badges > .badge-base {
@@ -54,6 +56,6 @@
 
 .badge-base {
   @extend .badge;
-  color: $primary;
   background-color: $my-gray;
+  color: $background;
 }

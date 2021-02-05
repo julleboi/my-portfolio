@@ -5,8 +5,6 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  font-size: 120%;
-
   animation-name: slide-in;
   animation-duration: 500ms;
 }
@@ -18,20 +16,21 @@
 
 #terminal-lines-container {
   padding: 0 2ch 0 2ch;
-  height: 10vh;
-  min-height: 6em;
+  min-height: 8em;
+  max-height: 8em;
   overflow: auto;
   background-color: rgba($body-bg, 0.5);
-  color: $body-color;
-  border-bottom: $body-color solid 1px;
+  font-size: smaller;
+  color: $primary;
+  border-bottom: $primary solid 1px;
 }
 
 #terminal-input-prefix,
 #terminal-input-field {
   border-radius: 0;
   border-style: hidden;
-  background-color: $body-bg;
-  color: $body-color;
+  background-color: $background;
+  color: $primary;
   padding-right: 0;
   padding-left: 2ch;
 }
@@ -42,17 +41,14 @@
 
 #terminal-titlebar {
   @extend .py-0;
-  background-color: $body-color;
+  background-color: $primary;
 }
 
-#terminal-titlebar a {
-  color: $primary;
-}
-
-#terminal-titlebar a:hover {
-  text-decoration: none;
-}
-
-#terminal-titlebar-hide {
-  font-size: 150%;
+#terminal-titlebar {
+  a, span {
+    color: $background;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }

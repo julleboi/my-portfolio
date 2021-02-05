@@ -22,14 +22,8 @@ export default (props: TerminalInputProps) => {
   }
 
   return (
-    <div 
-      className='input-group' 
-      id='terminal-input'
-    >
-      <span 
-        className='input-group-text'
-        id='terminal-input-prefix'
-      >
+    <div className='input-group' id='terminal-input'>
+      <span className='input-group-text' id='terminal-input-prefix'>
         guest@julle.dev: ~{location.pathname}$
       </span>
       <input 

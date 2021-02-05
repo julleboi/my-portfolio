@@ -11,8 +11,8 @@
   textarea, 
   button {
     @extend .mb-3;
-    background-color: $body-bg;
-    color: $secondary-color;
+    background-color: $background;
+    color: $secondary;
     border-radius: 0;
     border: $body-color solid 1px;
   }

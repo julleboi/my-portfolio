@@ -1,26 +1,27 @@
-$body-bg: #fff;
-$body-color: #000;
-$primary: #eee;
+$background: #fff;
+$primary: #000;
+$secondary: #444;
 $danger: #e44;
-$secondary-color: #222;
+$link-color: #44f;
+$my-gray: #888;
 
+// Misc
 $js-yellow: #ff4;
 $ts-blue: #44f;
 $scala-red: #f44;
 $rusty: #944;
-$link-color: #44f;
-$my-gray: #999;
 
 $theme-colors: (
-  'body-bg': $body-bg,
-  'body-color': $body-color,
+  'background': $background,
   'primary': $primary,
+  'secondary': $secondary,
   'danger': $danger,
-  'secondary-color': $secondary-color,
+  'link-color': $link-color,
+  'my-gray': $my-gray,
+
+  // Misc
   'js-yellow': $js-yellow,
   'ts-blue': $ts-blue,
   'scala-red': $scala-red,
-  'rusty': $rusty,
-  'link-color': $link-color,
-  'my-gray': $my-gray
+  'rusty': $rusty
 );

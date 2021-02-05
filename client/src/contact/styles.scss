@@ -1,7 +1,6 @@
-@import '../styles.scss';
+@import '../main.scss';
 
 #contact-form {
-  @extend .my-shadow;
   @extend .p-4;
   border: solid 1px;
 
@@ -12,7 +11,7 @@
     background-color: $background;
     color: $secondary;
     border-radius: 0;
-    border: $body-color solid 1px;
+    border: $primary solid 1px;
   }
 }
 

@@ -26,7 +26,7 @@ export default () => {
   }
 
   return (
-    <form id='contact-form' onSubmit={handleSubmit}>
+    <form id='contact-form' className='my-shadow' onSubmit={handleSubmit}>
       <h3 id='contact-response' className={response ? '' : 'hide'}>
         {response}
       </h3>

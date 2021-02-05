@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './styles.scss';
 
 export default () => {
   return (
@@ -12,10 +13,10 @@ export default () => {
         I am interested in web development, and I have experience 
         with TypeScript and React. However, I am totally motivated 
         to learn about new technologies, such as WebAssembly and 
-        serverless more recently.
+        serverless (AWS Lambda) more recently.
       </p>
-      <p>
-        Get a better grasp of my skills by having a look at 
+      <p id='about-last'>
+        You can get a better grasp of my skills by having a look at 
         my <Link to='/projects'>projects</Link>, to see what I have
         been working on recently.
       </p>

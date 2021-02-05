@@ -4,9 +4,9 @@ export default () => {
   return (
     <div id='home'>
       <h1 className='display-1 mb-3'>
-        Hi,
+        Hello,
       </h1>
-      <h1 className='display-4'>
+      <h1>
         Welcome to my portfolio.
       </h1>
     </div>

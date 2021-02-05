@@ -1,28 +1,9 @@
-@import './colors.scss';
-@import '~bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css2?family=VT323');
-
-body {
-  font-family: 'VT323', monospace;
-  font-size: 24px;
-  background-color: $background;
-  color: $primary;
-}
-
-a[href] {
-  color: $link-color;
-}
-
-body,
-input, 
-textarea, 
-button {
-  letter-spacing: 0.2ch;
-}
+@import '../main.scss';
 
 #content {
   @extend .container;
   @extend .p-4;
+  text-align: justify;
   margin-bottom: 2em;
 }
 

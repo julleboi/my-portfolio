@@ -43,7 +43,7 @@ export default () => {
         <div id='projects-container'>
           {
             repos.map((repo, idx) => 
-              <div className='projects-item' key={idx}>
+              <div className='projects-item my-shadow' key={idx}>
                 <div className='projects-item-body'>
                   <div className='projects-item-title'>{repo.name}</div>
                   <div className='projects-item-text'>

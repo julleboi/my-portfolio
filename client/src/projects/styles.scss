@@ -1,4 +1,4 @@
-@import '../styles.scss';
+@import '../main.scss';
 
 #projects-container {
   display: flex;
@@ -12,7 +12,6 @@
   @extend .m-4;
   @extend .border-primary;
   @extend .rounded-0;
-  @extend .my-shadow;
   font-size: smaller;
   background-color: $background;
   width: fit-content;

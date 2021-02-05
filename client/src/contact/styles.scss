@@ -1,12 +1,10 @@
 @import '../styles.scss';
 
-#contact {
+#contact-form {
   @extend .my-shadow;
   @extend .p-4;
   border: solid 1px;
-}
 
-#contact-form {
   input, 
   textarea, 
   button {

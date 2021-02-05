@@ -56,6 +56,6 @@
 
 .badge-base {
   @extend .badge;
-  background-color: $my-gray;
+  background-color: $badge-color;
   color: $background;
 }

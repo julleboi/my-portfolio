@@ -1,7 +1,6 @@
 @import './colors.scss';
 @import '~bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=VT323');
-@import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
 
 body {
   font-family: 'VT323', monospace;
@@ -18,7 +17,7 @@ body,
 input, 
 textarea, 
 button {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2ch;
 }
 
 #content {
@@ -32,7 +31,7 @@ button {
 }
 
 .my-shadow {
-  box-shadow: 8px 16px $my-gray;
+  box-shadow: 8px 16px $shadow-color;
 }
 
 #links {

@@ -1,9 +1,10 @@
 $background: #fff;
 $primary: #000;
-$secondary: #444;
+$secondary: #666;
 $danger: #e44;
 $link-color: #44f;
-$my-gray: #888;
+$badge-color: #888;
+$shadow-color: #aaa;
 
 // Misc
 $js-yellow: #ff4;
@@ -17,7 +18,8 @@ $theme-colors: (
   'secondary': $secondary,
   'danger': $danger,
   'link-color': $link-color,
-  'my-gray': $my-gray,
+  'badge-color': $badge-color,
+  'shadow-color': $shadow-color,
 
   // Misc
   'js-yellow': $js-yellow,

@@ -16,9 +16,8 @@ export default () => {
       </p>
       <p>
         Get a better grasp of my skills by having a look at 
-        my <i className='fab fa-github-alt'/> <Link to='/projects'>
-        projects</Link>, to see what I have been working on more 
-        recently.
+        my <Link to='/projects'>projects</Link>, to see what I have
+        been working on recently.
       </p>
     </div>
   );

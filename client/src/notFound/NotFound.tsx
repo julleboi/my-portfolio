@@ -5,7 +5,7 @@ export default () => {
   return (
     <div id='not-found'>
       <h1 className='display-1 p-3'>
-        <i className='fas fa-bomb' /> Not found :(
+        Not found :-(
       </h1>
     </div>
   );

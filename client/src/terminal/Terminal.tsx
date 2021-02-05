@@ -10,10 +10,10 @@ const INITIAL_LINES: [string, string][] = [
 ];
 
 const COMMANDS_LINES: [string, string][] = [
-  ['', 'Available commands:'                     ],
-  ['', ' - cd <new_dir> [ Changes directories ]' ],
-  ['', ' - clear        [ Clears all lines    ]' ],
-  ['', ' - help         [ Lists all commands  ]' ],
+  ['', 'Available commands:'],
+  ['', ' - cd <new_dir>'    ],
+  ['', ' - clear'           ],
+  ['', ' - help'            ],
 ];
 
 export default () => {

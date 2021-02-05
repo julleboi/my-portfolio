@@ -3,10 +3,10 @@ import React from 'react';
 export default () => {
   return (
     <div id='home'>
-      <p>
+      <h1 className='display-3'>
         Hi, <br />
         Welcome to my portfolio.
-      </p>
+      </h1>
     </div>
   );
 }

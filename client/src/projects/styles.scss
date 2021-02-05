@@ -10,12 +10,11 @@
 .projects-item {
   @extend .card;
   @extend .m-4;
-  @extend .border-secondary;
+  @extend .border-dark;
   @extend .rounded-0;
   @extend .my-shadow;
-  width: max-content;
-  max-width: 50vmin;
-  font-size: 1rem;
+  width: fit-content;
+  font-size: 80%;
 }
 
 .projects-item:hover {
@@ -41,6 +40,8 @@
 
 .projects-item-footer {
   @extend .card-footer;
+  border: none;
+  background-color: $body-bg;
   display: flex;
   flex-direction: row;
   align-items: center;

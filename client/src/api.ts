@@ -19,7 +19,6 @@ const apiPost = (path: string, body: Record<string, unknown>) => {
   })
 }
 
-
 export const contact = async (
   name: string, 
   email: string, 

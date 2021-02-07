@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 import sanitizeHtml from 'sanitize-html';
 import dedent from 'dedent';
 
-const inputSchema = {
+export const inputSchema = {
   type: 'object',
   properties: {
     body: {
@@ -56,7 +56,7 @@ export const sendNotification = async (message: string) => {
   return res.ok;
 }
 
-const notifier = async (event) => {
+export const notifier = async (event) => {
   const { name, email, message } = event.body;
   const notification = createMessage(name, email, message);
   const isSuccess = await sendNotification(notification);
